@@ -21,17 +21,18 @@ class CalculationsController < ApplicationController
   end
 
   def payment_results
-    @apr = params[:apr].to_f / 100
+    @apr = params[:apr].to_f
     @years = params[:years].to_i
     @principal = params[:principal].to_f
-    monthly_rate = @apr / 12
+
+    monthly_rate = (@apr / 100) / 12
     payments = @years * 12
     @result = @principal * (monthly_rate / (1 - (1 + monthly_rate) ** -payments))
   end
 
   def random_results
-    @min = params[:min].to_i
-    @max = params[:max].to_i
+    @min = params[:min].to_f
+    @max = params[:max].to_f
     @result = rand(@min..@max)
   end
 end
