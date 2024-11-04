@@ -1,0 +1,10 @@
+<h1>Square Root Calculation</h1>
+<p>Enter a number:</p>
+<%= form_with url: "/square_root/new", method: :get do %>
+  <%= number_field_tag :number %>
+  <%= submit_tag "Calculate" %>
+<% end %>
+
+<% if @result %>
+  <p>The square root of <%= @number %> is <%= @result %>.</p>
+<% end %>

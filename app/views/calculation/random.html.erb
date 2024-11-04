@@ -1,0 +1,14 @@
+<h1>Random Number Generator</h1>
+<%= form_with url: "/random/new", method: :get do %>
+  <p>Minimum:</p>
+  <%= number_field_tag :min %>
+  
+  <p>Maximum:</p>
+  <%= number_field_tag :max %>
+  
+  <%= submit_tag "Generate" %>
+<% end %>
+
+<% if @result %>
+  <p>The random number between <%= @min %> and <%= @max %> is <%= @result %>.</p>
+<% end %>
